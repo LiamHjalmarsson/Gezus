@@ -13,12 +13,10 @@ return new class extends Migration
     {
         Schema::create('expenses', function (Blueprint $table) {
             $table->id();
-
             $table->string("title");
             $table->date("payday");
-            $table->int("price");
-            $table->boolean("payed");
-
+            $table->integer("price"); 
+            $table->boolean("payed"); 
             $table->timestamps();
         });
     }
