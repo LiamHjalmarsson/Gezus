@@ -14,7 +14,6 @@ class ExpenseController extends Controller
     public function index()
     {
         $expense = Expense::all();
-
         return response()->json($expense);
     }
 

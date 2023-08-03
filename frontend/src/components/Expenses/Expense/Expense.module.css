@@ -1,0 +1,13 @@
+.customCard {
+    display: flex;
+    color: burlywood;
+    gap: 1rem;
+    border: 1px solid ;
+    padding: 1rem;
+}
+
+.title {
+    /* flex-grow: 1; */
+    align-items: center;
+    display: flex;
+}
