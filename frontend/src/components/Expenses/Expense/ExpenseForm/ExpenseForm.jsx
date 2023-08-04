@@ -53,6 +53,7 @@ const ExpenseForm = (props) => {
                         id: "amount", 
                         placeholder: "Enter the amount of the expense",
                         type: "number",
+                        min: 0,
                         value: amount,
                         onChange: amountChangeHandler
                     }}

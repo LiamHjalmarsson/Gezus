@@ -7,7 +7,7 @@ const useHttp = () => {
     let sendRequest = useCallback( async (requestConfig, applyData) => {
 
         setIsError(false);
-        
+
         let response = await fetch(requestConfig.url, {
             method: requestConfig.method ? requestConfig.method : "GET",
             headers: requestConfig.headers ? requestConfig.headers : {},

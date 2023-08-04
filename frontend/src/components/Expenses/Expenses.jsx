@@ -1,10 +1,11 @@
-import { useCallback, useEffect, useState } from 'react'
-import Card from '../Ui/Card';
+import { useEffect, useState } from 'react'
 
-import style from "./Expenses.module.css";
+import useHttp from '../../hooks/use-http';
+import Card from '../Ui/Card';
 import ExpensesList from './ExpensesList';
 import ExpenseForm from './Expense/ExpenseForm/ExpenseForm';
-import useHttp from '../../hooks/use-http';
+
+import style from "./Expenses.module.css";
 
 const Expenses = (props) => {
     let [expenses, setExpenses] = useState([]);
@@ -22,7 +23,7 @@ const Expenses = (props) => {
                 });
                 setExpenses(expenses);
             })
-        )
+        );
     }, [sendRequest]);
 
     let addExpenseHandler = async (expense) => {
@@ -47,6 +48,9 @@ const Expenses = (props) => {
             <Card custom={style.customCard}>
                 <ExpensesList expenses={expenses} />
             </Card>
+            {
+                isLoading && <p> loading... </p>
+            }
         </>
     );
 };
