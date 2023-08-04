@@ -1,14 +1,15 @@
 import { useEffect, useState } from 'react'
 
 import useHttp from '../../hooks/use-http';
-import Card from '../Ui/Card';
+import Card from '../Ui/Card/Card';
 import ExpensesList from './ExpensesList';
-import ExpenseForm from './Expense/ExpenseForm/ExpenseForm';
+import ExpenseForm from './ExpenseForm/ExpenseForm';
 
 import style from "./Expenses.module.css";
 
 const Expenses = (props) => {
     let [expenses, setExpenses] = useState([]);
+    let [selectedCurrency, setSelectedCurrency] = useState("USD");
     let { isLoading, isError, sendRequest } = useHttp();
     
     useEffect(() => {
@@ -57,11 +58,18 @@ const Expenses = (props) => {
 
     return (
         <>
-            <Card>
+            <Card custom={style.customFormCard}>
                 <ExpenseForm addExpense={addExpenseHandler} error={isError} />
             </Card>
+            <Card>
+                <select value={selectedCurrency} onChange={(e) => setSelectedCurrency(e.target.value)}>
+                    <option value="USD">USD</option>
+                    <option value="EUR">EUR</option>
+                    <option value="KR">KR</option>
+                </select>
+            </Card>
             <Card custom={style.customCard}>
-                <ExpensesList expenses={expenses} removeHandeler={removeHandeler} />
+                <ExpensesList expenses={expenses} removeHandeler={removeHandeler} currency={selectedCurrency} />
             </Card>
             {
                 isLoading && <p> loading... </p>

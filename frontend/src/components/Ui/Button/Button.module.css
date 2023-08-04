@@ -1,0 +1,11 @@
+.button {
+    padding: 0.5rem;
+    outline: none;
+    border: none;
+    border-radius: 0.2rem;
+    transition: background linear 200ms;
+}
+
+.button:hover {
+    background: orange;
+}

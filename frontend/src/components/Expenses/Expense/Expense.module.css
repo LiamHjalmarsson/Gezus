@@ -8,11 +8,17 @@
 
 .title {
     flex-grow: 1;
+    font-size: 24px;
+    font-weight: bold;
 }
 
 .price {
     font-size: 1.2rem;
     font-weight: bold;
+    padding: 1rem;
+    border: 1px solid burlywood;
+    background: #313131;
+    border-radius: 0.2rem;
 }
 
 li div {

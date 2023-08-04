@@ -1,62 +1,83 @@
-import { useRef, useState } from "react";
-import Input from "../../../Ui/Input";
+import { useState } from "react";
+import Input from "../../Ui/Input/Input";
+import Button from "../../Ui/Button/Button";
+
+import style from "./ExpenseForm.module.css";
 
 const ExpenseForm = (props) => {
     let [title, setTitle] = useState("");
-    let titleRef = useRef("");
-    let [price, setPrice] = useState("");
-    let priceRef = useRef("");
+    let [amount, setAmount] = useState("");
+    let [dueDate, setDueDate] = useState("");
 
     let submitHandler = (e) => {
         e.preventDefault();
 
         let expense = {
             title,
-            price
+            amount,
+            dueDate
         }
 
         props.addExpense(expense);
-    
     }
 
     let titleChangeHandler = (e) => {
         setTitle(e.target.value);
     }
 
-    let priceChangeHandler = (e) => { 
-        setPrice(parseInt(e.target.value));
+    let amountChangeHandler = (e) => { 
+        setAmount(parseInt(e.target.value));
+    }
+
+    let dueDateChangeHandler = (e) => {
+        setDueDate(e.target.value);
     }
 
     return (
         <>
-            <form method="POST" onSubmit={submitHandler}>
-                <Input 
-                    label="Title" 
-                    input={{ 
-                        id: "title",
-                        ref: titleRef, 
-                        placeholder: "Enter title of the expense",
-                        type: "text",
-                        value: title,
-                        onChange: titleChangeHandler
-                    }}
-                />
+            <form method="POST" onSubmit={submitHandler} className={style.form}>
+                <div className={style.inputContainer}>
+                    <Input 
+                        label="Title" 
+                        input={{ 
+                            id: "title",
+                            placeholder: "Enter title of the expense",
+                            type: "text",
+                            value: title,
+                            onChange: titleChangeHandler
+                        }}
+                        error={props.error.title ? props.error.title : undefined}
+                    />
 
-                <Input 
-                    label="Price" 
-                    input={{ 
-                        id: "price", 
-                        ref: priceRef,
-                        placeholder: "Enter the price of the expense",
-                        type: "number",
-                        value: price,
-                        onChange: priceChangeHandler
-                    }}
-                />
+                    <Input 
+                        label="Amount" 
+                        input={{ 
+                            id: "amount", 
+                            placeholder: "Enter the amount of the expense",
+                            type: "number",
+                            min: 0,
+                            value: amount,
+                            onChange: amountChangeHandler
+                        }}
+                        error={props.error.amount ? props.error.amount : undefined}
+                    />
 
-                <button type="submit">
+                    <Input 
+                        label="Due Date"  
+                        input={{ 
+                            id: "dueDate", 
+                            placeholder: "Enter the due date of the expense",
+                            type: "date",
+                            value: dueDate,
+                            onChange: dueDateChangeHandler
+                        }}
+                        error={props.error.dueDate ? props.error.dueDate : undefined}
+                    />
+                </div>
+
+                <Button button={{ type: "submit" }}>
                     Add new expense
-                </button>
+                </Button>
             </form>
         </>
     );

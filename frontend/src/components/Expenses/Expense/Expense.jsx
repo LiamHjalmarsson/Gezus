@@ -1,27 +1,28 @@
-import Card from "../../Ui/Card";
+import Card from "../../Ui/Card/Card";
 import ExpenseDate from "./ExpenseDate";
 
 import style from "./Expense.module.css";
+import Button from "../../Ui/Button/Button";
 
-const Expense = ({detail, removeHandeler}) => {
-
+const Expense = ({detail, removeHandeler, currency}) => {
     return (
         <li>
             <Card custom={style.customCard}>
                 <ExpenseDate detail={detail} />
                 <div className={style.title}>
-                    <h4>
-                        {detail.title}
-                    </h4>
+                    {detail.title}
                 </div>
                 <div className={style.price}>
-                    {detail.amount}
+                    {`${detail.amount} ${currency}`}
                 </div>
-                <button onClick={() => {
-                    removeHandeler(detail.id)
-                }}>
+                <Button button={{
+                        onClick: () => {
+                            removeHandeler(detail.id);
+                        }
+                    }}
+                >
                     Remove expense 
-                </button>
+                </Button>
             </Card>
         </li>
     );

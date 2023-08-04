@@ -2,7 +2,7 @@ import Expense from "./Expense/Expense";
 
 import style from "./ExpensesList.module.css";
 
-const ExpensesList = ({expenses, removeHandeler}) => {
+const ExpensesList = ({expenses, removeHandeler, currency}) => {
 
     return (
         <ul className={style.ul}>
@@ -14,6 +14,7 @@ const ExpensesList = ({expenses, removeHandeler}) => {
                         key={expense.id} 
                         detail={expense}
                         removeHandeler={removeHandeler}
+                        currency={currency}
                     />
                 ))
             )}
