@@ -59,6 +59,17 @@ class ExpenseController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $task = Expense::findOrFail($id);
+        $result = $task->delete();
+
+        return response()->json($result);
+    }
+
+    public function delete ($id) {
+        $task = Expense::findOrFail($id);
+        $result = $task->delete();
+        if($result){
+            return ['result'=>'Record has been deleted'];
+        }
     }
 }

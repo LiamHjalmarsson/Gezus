@@ -3,7 +3,8 @@ import ExpenseDate from "./ExpenseDate";
 
 import style from "./Expense.module.css";
 
-const Expense = ({detail}) => {
+const Expense = ({detail, removeHandeler}) => {
+
     return (
         <li>
             <Card custom={style.customCard}>
@@ -16,6 +17,11 @@ const Expense = ({detail}) => {
                 <div className={style.price}>
                     {detail.amount}
                 </div>
+                <button onClick={() => {
+                    removeHandeler(detail.id)
+                }}>
+                    Remove expense 
+                </button>
             </Card>
         </li>
     );

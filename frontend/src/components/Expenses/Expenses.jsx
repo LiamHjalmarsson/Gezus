@@ -40,13 +40,28 @@ const Expenses = (props) => {
         );
     }
 
+    let removeHandeler = (id) => {
+        sendRequest(
+            {
+                url: `http://127.0.0.1:8000/api/expenses/${id}`,
+                method: "DELETE",
+                headers: {"Content-Type": "application/json"},
+            },
+            (() => 
+                setExpenses(prevExpenses => {
+                    return prevExpenses.filter(expense => expense.id !== id);
+                })
+            )
+        );
+    }
+
     return (
         <>
             <Card>
                 <ExpenseForm addExpense={addExpenseHandler} error={isError} />
             </Card>
             <Card custom={style.customCard}>
-                <ExpensesList expenses={expenses} />
+                <ExpensesList expenses={expenses} removeHandeler={removeHandeler} />
             </Card>
             {
                 isLoading && <p> loading... </p>
