@@ -1,54 +1,48 @@
 import { useCallback, useEffect, useState } from 'react'
 import Card from '../Ui/Card';
-import Expense from './Expense/Expense';
 
 import style from "./Expenses.module.css";
 import ExpensesList from './ExpensesList';
-import ExpenseForm from './ExpenseForm/ExpenseForm';
+import ExpenseForm from './Expense/ExpenseForm/ExpenseForm';
+import useHttp from '../../hooks/use-http';
 
 const Expenses = (props) => {
     let [expenses, setExpenses] = useState([]);
-
-    let fetchExpenses = useCallback(async () => {
-        try {
-            let response = await fetch("http://127.0.0.1:8000/api/expenses");
-            let recourse = await response.json();
-
-            let loaded = [];
-
-            recourse.forEach((expense) => {
-                loaded.push(expense);
-            });
-
-            setExpenses(loaded);
-        } catch (error) {
-            console.log(error);
-        }
-    }, []);
-
+    let { isLoading, isError, sendRequest } = useHttp();
+    
     useEffect(() => {
-        fetchExpenses();
-    }, [fetchExpenses]);
+        sendRequest(
+            {
+                url: "http://127.0.0.1:8000/api/expenses"  
+            },
+            (recourse => {
+                let expenses = [];
+                recourse.forEach(expense => {
+                    expenses.push(expense);
+                });
+                setExpenses(expenses);
+            })
+        )
+    }, [sendRequest]);
 
     let addExpenseHandler = async (expense) => {
-        try {
-            let response = await fetch("http://127.0.0.1:8000/api/expenses", {
+        sendRequest(
+            {
+                url: "http://127.0.0.1:8000/api/expenses",
                 method: "POST",
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify(expense)
-            });
-
-            let res = await response.json();
-            console.log(res);
-        } catch (error) {
-            console.log(error);
-        }
+            },
+            (res => {
+                setExpenses(prevExpenses => [...prevExpenses, res])
+            })
+        );
     }
 
     return (
         <>
             <Card>
-                <ExpenseForm />
+                <ExpenseForm addExpense={addExpenseHandler} error={isError} />
             </Card>
             <Card custom={style.customCard}>
                 <ExpensesList expenses={expenses} />

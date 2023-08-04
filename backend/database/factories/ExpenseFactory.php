@@ -17,10 +17,10 @@ class ExpenseFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' => fake()->sentence,
-            'payday' => fake()->date,
-            'price' => fake()->numberBetween(100, 1000),
-            'payed' => fake()->boolean,
+            'title' => $this->faker->sentence,
+            'dueDate' => $this->faker->dateTimeBetween('2021-01-01', '2023-12-31'),
+            'amount' => $this->faker->numberBetween(100, 1000),
+            'payed' => $this->faker->boolean,
         ];
     }
 }

@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('expenses', function (Blueprint $table) {
             $table->id();
             $table->string("title");
-            $table->date("payday");
-            $table->integer("price"); 
-            $table->boolean("payed"); 
+            $table->integer("amount");
+            $table->date("dueDate");
+            $table->boolean("payed")->default(false); 
             $table->timestamps();
         });
     }

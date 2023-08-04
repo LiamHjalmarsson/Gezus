@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Expense extends Model
 {
     use HasFactory;
-    protected $fillable = ["title", "payday", "price", "payed"];
+    protected $fillable = ["title", "amount", "dueDate", "payed"];
 }

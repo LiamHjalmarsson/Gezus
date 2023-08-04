@@ -14,7 +14,7 @@ const Expense = ({detail}) => {
                     </h4>
                 </div>
                 <div className={style.price}>
-                    {detail.price}
+                    {detail.amount}
                 </div>
             </Card>
         </li>

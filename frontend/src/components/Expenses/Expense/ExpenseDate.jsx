@@ -1,7 +1,7 @@
 import style from "./expenseDate.module.css";
 
 const ExpenseDate = ({detail}) => {
-    let expenseDate = new Date(detail.payday);
+    let expenseDate = new Date(detail.dueDate);
 
     let month = expenseDate.toLocaleString("en-US", { month: "long" });
     let year = expenseDate.getFullYear();
