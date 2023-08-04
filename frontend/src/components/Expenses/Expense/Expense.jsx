@@ -13,6 +13,9 @@ const Expense = ({detail}) => {
                         {detail.title}
                     </h4>
                 </div>
+                <div className={style.price}>
+                    {detail.price}
+                </div>
             </Card>
         </li>
     );

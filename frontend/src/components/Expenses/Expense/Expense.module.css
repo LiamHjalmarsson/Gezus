@@ -7,7 +7,15 @@
 }
 
 .title {
-    /* flex-grow: 1; */
+    flex-grow: 1;
+}
+
+.price {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+li div {
     align-items: center;
     display: flex;
 }

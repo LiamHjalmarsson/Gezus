@@ -4,6 +4,7 @@ import Expense from './Expense/Expense';
 
 import style from "./Expenses.module.css";
 import ExpensesList from './ExpensesList';
+import ExpenseForm from './ExpenseForm/ExpenseForm';
 
 const Expenses = (props) => {
     let [expenses, setExpenses] = useState([]);
@@ -40,12 +41,15 @@ const Expenses = (props) => {
             let res = await response.json();
             console.log(res);
         } catch (error) {
-            console.log(console.error(););
+            console.log(error);
         }
     }
 
     return (
         <>
+            <Card>
+                <ExpenseForm />
+            </Card>
             <Card custom={style.customCard}>
                 <ExpensesList expenses={expenses} />
             </Card>
