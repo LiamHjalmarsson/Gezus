@@ -46,7 +46,7 @@ const ExpenseForm = (props) => {
                             value: title,
                             onChange: titleChangeHandler
                         }}
-                        error={props.error.title ? props.error.title : undefined}
+                        error={props.error.title ? props.error.title : ""}
                     />
 
                     <Input 

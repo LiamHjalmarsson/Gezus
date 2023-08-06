@@ -19,6 +19,8 @@
     border: 1px solid burlywood;
     background: #313131;
     border-radius: 0.2rem;
+    width: 20%;
+    justify-content: center;
 }
 
 li div {

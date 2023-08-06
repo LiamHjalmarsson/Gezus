@@ -8,3 +8,11 @@
     outline: none;
     padding: 0.5rem;
 }
+
+.inputError{
+    border: 1px solid red;
+}
+
+.error {
+    color: red;
+}

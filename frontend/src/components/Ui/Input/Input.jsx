@@ -6,9 +6,9 @@ const Input = (props) => {
             <label htmlFor={props.input.id}>
                 {props.label}
             </label>
-            <input {...props.input} className={style.input} />
+            <input {...props.input} className={`${style.input} ${props.error ? style.inputError  : ""}`} />
             {
-                props.error && <p> {props.error} </p>
+                props.error && <p className={style.error}> {props.error} </p>
             }
         </div>
     );

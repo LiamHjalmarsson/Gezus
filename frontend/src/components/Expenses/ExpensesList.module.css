@@ -5,3 +5,8 @@
     gap: 1rem;
     padding: 0;
 }
+
+.customOption {
+    display: flex;
+    justify-content: end;
+}
