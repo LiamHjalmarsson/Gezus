@@ -1,14 +1,14 @@
 .button {
-    padding: 1rem;
+    padding: var(--OneRem);
     outline: none;
     border: none;
-    border-radius: 0.5rem;
-    border: 1px solid #313131;
+    border-radius: var(--borderRadius);
     transition: border linear 250ms;
-    background: #313131;
-    color: burlywood;
+    background: var(--colorDark);
+    color: var(--font_border);
+    border: 1px solid var(--font_border);
 }
 
 .button:hover {
-    border: 1px solid burlywood;
+
 }

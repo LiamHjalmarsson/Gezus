@@ -1,9 +1,9 @@
 .customCard {
     display: flex;
-    color: burlywood;
-    gap: 1rem;
+    color: var(--font_border);
+    gap: var(--OneRem);
     border: 1px solid ;
-    padding: 1rem;
+    padding: var(--OneRem);
 }
 
 .title {
@@ -15,10 +15,9 @@
 .price {
     font-size: 1.2rem;
     font-weight: bold;
-    padding: 1rem;
-    border: 1px solid burlywood;
-    background: #313131;
-    border-radius: 0.2rem;
+    padding: var(--OneRem);
+    background: var(--colorDark);
+    border-radius: 0.5rem;
     width: 20%;
     justify-content: center;
 }

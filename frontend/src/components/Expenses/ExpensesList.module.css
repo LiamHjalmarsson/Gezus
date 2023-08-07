@@ -2,11 +2,11 @@
     display: flex;
     flex-direction: column;
     list-style: none;
-    gap: 1rem;
+    gap: var(--OneRem);
     padding: 0;
 }
 
-.customOption {
-    display: flex;
-    justify-content: end;
+.empety {
+    font-weight: bold;
+    text-align: center;
 }

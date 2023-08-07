@@ -1,12 +1,33 @@
-import './App.css'
-import Expenses from './components/Expenses/Expenses'
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+
+import ExpensesPage from "./components/Expenses/ExpensesPage";
+import RootPage from "./components/Root/RootPage";
+import FormPage from "./components/Expenses/ExpenseForm/Page";
+
+const router = createBrowserRouter(
+  [
+    {
+      path: "/",
+      element: <RootPage />,
+      id: "root",
+      children: [
+        {
+          path: "/",
+          index: true,
+          element: <ExpensesPage />,
+        }, 
+        {
+          path: "/add",
+          element: <FormPage />,
+        }
+      ]
+    }
+  ]
+);
+
 
 function App() {
-  return (
-    <>
-      <Expenses />
-    </>
-  )
+  return <RouterProvider router={router} />
 }
 
 export default App

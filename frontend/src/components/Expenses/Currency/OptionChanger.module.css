@@ -1,0 +1,13 @@
+.customOption {
+    display: flex;
+    justify-content: end;
+}
+
+.customOption select {
+    padding: 1rem;
+    background: #313131;
+    outline: none;
+    border: 0;
+    border-radius: 0.5rem;
+    color: burlywood;
+}

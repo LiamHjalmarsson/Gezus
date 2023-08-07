@@ -3,12 +3,13 @@ import { useEffect, useState } from 'react'
 import useHttp from '../../hooks/use-http';
 import Card from '../Ui/Card/Card';
 import ExpensesList from './ExpensesList';
-import ExpenseForm from './ExpenseForm/ExpenseForm';
+import ExpensesFilter from './Chart/ExpensesChart';
 
 import style from "./Expenses.module.css";
 
 const Expenses = (props) => {
     let [expenses, setExpenses] = useState([]);
+    let [filter, setFilter] = useState("2023");
     let { isLoading, isError, sendRequest } = useHttp();
     
     useEffect(() => {
@@ -25,20 +26,6 @@ const Expenses = (props) => {
             })
         );
     }, [sendRequest]);
-
-    let addExpenseHandler = async (expense) => {
-        sendRequest(
-            {
-                url: "http://127.0.0.1:8000/api/expenses",
-                method: "POST",
-                headers: {"Content-Type": "application/json"},
-                body: JSON.stringify(expense)
-            },
-            (res => {
-                setExpenses(prevExpenses => [...prevExpenses, res])
-            })
-        );
-    }
 
     let removeHandeler = (id) => {
         sendRequest(
@@ -57,15 +44,14 @@ const Expenses = (props) => {
 
     return (
         <>
-            <Card custom={style.customFormCard}>
-                <ExpenseForm addExpense={addExpenseHandler} error={isError} />
-            </Card>
-            <Card custom={style.customCard}>
-                <ExpensesList expenses={expenses} removeHandeler={removeHandeler} />
-            </Card>
-            {
-                isLoading && <p> loading... </p>
-            }
+            <div className={style.expensesContainer}>
+                <Card custom={style.customCard}>
+                    <ExpensesFilter expenses={expenses}/>
+                </Card>
+                <Card custom={style.customCard}>
+                    <ExpensesList expenses={expenses} removeHandeler={removeHandeler} />
+                </Card>
+            </div>
         </>
     );
 };

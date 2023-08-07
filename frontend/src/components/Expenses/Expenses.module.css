@@ -1,11 +1,14 @@
-.customFormCard {
+.expensesContainer {
     display: flex;
     justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
 }
 
 .customCard {
-    padding: 1rem;
-    background-color: #693d4e;
-    margin: 1rem auto;
+    padding: var(--OneRem);
+    background-color: var(--coloredBackground);
+    margin: auto;
     width: 80%;
 }

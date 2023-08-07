@@ -1,8 +1,8 @@
 import Card from "../../Ui/Card/Card";
 import ExpenseDate from "./ExpenseDate";
+import Button from "../../Ui/Button/Button";
 
 import style from "./Expense.module.css";
-import Button from "../../Ui/Button/Button";
 
 const Expense = ({detail, removeHandeler, currency}) => {
     return (

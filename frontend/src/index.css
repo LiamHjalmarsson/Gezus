@@ -1,8 +1,24 @@
+:root {
+    /* Fonts */
+    --titleFont: 'Noto Sans', sans-serif;;
+
+    /* Colors */
+    --colorDark: #313131;
+    --coloredBackground: #693d4e;
+    --font_border: burlywood;
+    
+    /* sizes */
+    --OneRem: 1rem;
+    --borderRadius: 0.5rem;
+}
+
 * {
     padding: 0px;
     margin: 0px;
+    box-sizing: border-box;
 }
 
 body {
-    background-color: rgb(49, 49, 49);
+    font-family: var(--titleFont);
+    background-color: var(--colorDark);
 }

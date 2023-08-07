@@ -19,6 +19,7 @@ const ExpenseForm = (props) => {
         }
 
         props.addExpense(expense);
+
     }
 
     let titleChangeHandler = (e) => {
@@ -41,7 +42,7 @@ const ExpenseForm = (props) => {
                         label="Title" 
                         input={{ 
                             id: "title",
-                            placeholder: "Enter title of the expense",
+                            placeholder: "Enter title of expense",
                             type: "text",
                             value: title,
                             onChange: titleChangeHandler
@@ -53,25 +54,27 @@ const ExpenseForm = (props) => {
                         label="Amount" 
                         input={{ 
                             id: "amount", 
-                            placeholder: "Enter the amount of the expense",
+                            placeholder: "Enter the amount of expense",
                             type: "number",
                             min: 0,
                             value: amount,
                             onChange: amountChangeHandler
                         }}
                         error={props.error.amount ? props.error.amount : undefined}
+                        custom={style.customInput}
                     />
+                    
 
                     <Input 
                         label="Due Date"  
                         input={{ 
                             id: "dueDate", 
-                            placeholder: "Enter the due date of the expense",
                             type: "date",
                             value: dueDate,
                             onChange: dueDateChangeHandler
                         }}
                         error={props.error.dueDate ? props.error.dueDate : undefined}
+                        custom={style.customInput}
                     />
                 </div>
 

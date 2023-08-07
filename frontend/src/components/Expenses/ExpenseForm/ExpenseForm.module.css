@@ -1,16 +1,46 @@
-.form {
+.customFormCard {
+    display: flex;
+    justify-content: center;
+}
+
+.customCard {
+    padding: var(--OneRem);
+    background-color: var(--coloredBackground);
+    margin: auto;
+    width: 80%;
+}
+
+.ul {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    list-style: none;
+    gap: var(--OneRem);
+    padding: 0;
+    margin-top: 2rem;
+    width: 80%;
+}
+
+.form {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
     align-items: center;
     flex-wrap: wrap;
-    gap: 1rem;
-    padding: 1rem;
+    gap: var(--OneRem);
+    padding: var(--OneRem);
+    background: var(--coloredBackground);
+    width: 80%;
+    padding: 2.5rem;
+    border-radius: var(--borderRadius);
 }
 
 .inputContainer {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-around;
     width: 100%;
-    gap: 2rem;
+    gap: 0.1rem;
+}
+
+.customInput {
 }
