@@ -25,8 +25,9 @@ class ExpenseController extends Controller
     {
         $validator = Validator::make($request->all(), [
             "title" => "required",
-            "dueDate" => "required|date|after_or_equal:2021-01-01", // Assuming you want dueDate to be after or equal to 2021-01-01
-            "amount" => "required", // Assuming you want amount to be an integer between 100 and 1000
+            "dueDate" => "required|date|after_or_equal:2021-01-01", 
+            "amount" => "required", 
+            "currency" => "required",
         ]);
     
         if ($validator->fails()) {
@@ -69,7 +70,7 @@ class ExpenseController extends Controller
         $task = Expense::findOrFail($id);
         $result = $task->delete();
         if($result){
-            return ['result'=>'Record has been deleted'];
+            return ['result'=>'expense has been deleted'];
         }
     }
 }

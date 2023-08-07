@@ -19,6 +19,7 @@ class ExpenseFactory extends Factory
         return [
             'title' => $this->faker->sentence,
             'dueDate' => $this->faker->dateTimeBetween('2021-01-01', '2023-12-31'),
+            "currency" => $this->faker->currency,
             'amount' => $this->faker->numberBetween(100, 1000),
             'payed' => $this->faker->boolean,
         ];

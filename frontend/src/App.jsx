@@ -17,7 +17,7 @@ const router = createBrowserRouter(
           element: <ExpensesPage />,
         }, 
         {
-          path: "/add",
+          path: "/addExpense",
           element: <FormPage />,
         }
       ]

@@ -9,15 +9,19 @@ const ExpenseForm = (props) => {
     let [amount, setAmount] = useState("");
     let [dueDate, setDueDate] = useState("");
 
+    let [currency, setCurrency] = useState("");
+
     let submitHandler = (e) => {
         e.preventDefault();
 
         let expense = {
             title,
             amount,
-            dueDate
+            dueDate,
+            currency
         }
 
+        console.log(expense);
         props.addExpense(expense);
 
     }
@@ -32,6 +36,10 @@ const ExpenseForm = (props) => {
 
     let dueDateChangeHandler = (e) => {
         setDueDate(e.target.value);
+    }
+
+    let currencyHandler = (e) => {
+        setCurrency(e.target.value);
     }
 
     return (
@@ -64,7 +72,6 @@ const ExpenseForm = (props) => {
                         custom={style.customInput}
                     />
                     
-
                     <Input 
                         label="Due Date"  
                         input={{ 
@@ -76,11 +83,23 @@ const ExpenseForm = (props) => {
                         error={props.error.dueDate ? props.error.dueDate : undefined}
                         custom={style.customInput}
                     />
-                </div>
 
-                <Button button={{ type: "submit" }}>
-                    Add new expense
-                </Button>
+                    <div className={style.container}>
+                        <div className={style.selectContainer}>
+                            <label> Currencty </label>
+                            <select value={currency} onChange={currencyHandler} className={style.select}>
+                                <option key="KR" value="KR"> KR </option>
+                                <option key="EUR" value="EUR"> EUR </option>
+                                <option key="USD" value="USD"> USD </option>
+                            </select>
+                        </div>
+                        <div className={style.btnContainer}>
+                            <Button button={{ type: "submit" }} custom={style.customButton}>
+                                Add new expense
+                            </Button>
+                        </div>
+                    </div>
+                </div>
             </form>
         </>
     );

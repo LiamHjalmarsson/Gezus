@@ -35,12 +35,43 @@
 }
 
 .inputContainer {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     flex-wrap: wrap;
     justify-content: space-around;
     width: 100%;
-    gap: 0.1rem;
+    gap: 2rem;
 }
 
-.customInput {
+.container {
+    display: flex;
+    gap: 2rem;
+}
+
+.btnContainer { 
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}
+
+.selectContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex-grow: 1;
+}
+
+.selectContainer select {
+    outline: none;
+    border: 0;
+    border: 1px solid transparent;
+    padding: var(--OneRem);
+    border-radius: var(--borderRadius);
+}
+
+.customButton:hover {
+    cursor: pointer;
+    border-color: orangered;
+    color: orangered;
+    transition: border, color 1500ms ease-in-out;
 }

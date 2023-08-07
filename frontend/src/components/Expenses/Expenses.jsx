@@ -49,7 +49,7 @@ const Expenses = (props) => {
                     <ExpensesFilter expenses={expenses}/>
                 </Card>
                 <Card custom={style.customCard}>
-                    <ExpensesList expenses={expenses} removeHandeler={removeHandeler} />
+                    <ExpensesList expenses={expenses} removeHandeler={removeHandeler} loading={isLoading} />
                 </Card>
             </div>
         </>

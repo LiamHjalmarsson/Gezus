@@ -4,7 +4,7 @@ import Button from "../../Ui/Button/Button";
 
 import style from "./Expense.module.css";
 
-const Expense = ({detail, removeHandeler, currency}) => {
+const Expense = ({detail, removeHandeler, otherCurrency}) => {
     return (
         <li>
             <Card custom={style.customCard}>
@@ -13,7 +13,10 @@ const Expense = ({detail, removeHandeler, currency}) => {
                     {detail.title}
                 </div>
                 <div className={style.price}>
-                    {`${detail.amount} ${currency}`}
+                    {`${detail.amount} ${detail.currency}`}
+                </div>
+                <div>
+                    {`= ${detail.amount} ${otherCurrency}`}
                 </div>
                 <Button button={{
                         onClick: () => {

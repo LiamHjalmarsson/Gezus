@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string("title");
             $table->integer("amount");
             $table->date("dueDate");
+            $table->string("currency");
             $table->boolean("payed")->default(false); 
             $table->timestamps();
         });

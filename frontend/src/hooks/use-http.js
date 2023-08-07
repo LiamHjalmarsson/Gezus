@@ -5,8 +5,8 @@ const useHttp = () => {
     let [isError, setIsError] = useState(false);
 
     let sendRequest = useCallback( async (requestConfig, applyData) => {
-
         setIsError(false);
+        setIsLoading(true);
 
         let response = await fetch(requestConfig.url, {
             method: requestConfig.method ? requestConfig.method : "GET",
@@ -22,6 +22,7 @@ const useHttp = () => {
             applyData(recourse);
         }
 
+        setIsLoading(false);
     }, []);
 
     return {
