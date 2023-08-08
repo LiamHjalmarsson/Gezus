@@ -3,13 +3,13 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import ExpensesPage from "./components/Expenses/ExpensesPage";
 import RootPage from "./components/Root/RootPage";
 import FormPage from "./components/Expenses/ExpenseForm/Page";
+import Signup from "./components/Account/Signup";
 
 const router = createBrowserRouter(
   [
     {
       path: "/",
       element: <RootPage />,
-      id: "root",
       children: [
         {
           path: "/",
@@ -19,6 +19,10 @@ const router = createBrowserRouter(
         {
           path: "/addExpense",
           element: <FormPage />,
+        },
+        {
+          path: "/signup",
+          element: <Signup />
         }
       ]
     }

@@ -1,9 +1,16 @@
 import { NavLink } from "react-router-dom";
+import { useState } from "react";
 import Button from "../Ui/Button/Button";
 import style from "./Navigation.module.css";
 
 const Navigation = () => {
-    return ( 
+    let [activeUser, setActiveUser] = useState(false);
+
+    let userHandeler = () => {
+        setActiveUser(!activeUser);
+    }
+
+    return (
         <>
             <header className={style.header}>
                 <NavLink to="/">
@@ -22,9 +29,14 @@ const Navigation = () => {
                     </li>
                 </ul>
                 <div>
-                    <Button custom={style.userBtn}>
-                        User
+                    <Button custom={style.userBtn} button={{ onClick: userHandeler }}>
+                        Sign up
                     </Button>
+                    <div className={`${style.slideContainer} ${activeUser ? style.slideIn : style.slideOut}`}>
+                        <NavLink to="/signup" onClick={() => setActiveUser(false)}> 
+                            Signup 
+                        </NavLink>
+                    </div>
                 </div>
             </header>
         </>

@@ -34,5 +34,22 @@
     background-color: transparent;
 }
 
-.userBtn:hover {
+.slideContainer {
+    position: absolute;
+    right: -100%;
+    top: 50;
+    width: 200px;
+    background-color: var(--colorDark);
+    color: var(--font_border);
+    transition: right 0.3s ease-in-out; 
+    padding: 1rem;
+    border: 2px solid var(--coloredBackground);
+}
+
+.slideIn {
+    right: 0; /* Slide in from the right */
+}
+
+.slideOut {
+    right: -100%; /* Slide out to the right */
 }
