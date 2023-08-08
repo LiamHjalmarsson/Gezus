@@ -9,7 +9,7 @@ const ExpenseForm = (props) => {
     let [amount, setAmount] = useState("");
     let [dueDate, setDueDate] = useState("");
 
-    let [currency, setCurrency] = useState("");
+    let [currency, setCurrency] = useState("KR");
 
     let submitHandler = (e) => {
         e.preventDefault();
@@ -86,7 +86,7 @@ const ExpenseForm = (props) => {
 
                     <div className={style.container}>
                         <div className={style.selectContainer}>
-                            <label> Currencty </label>
+                            <label> Currency </label>
                             <select value={currency} onChange={currencyHandler} className={style.select}>
                                 <option key="KR" value="KR"> KR </option>
                                 <option key="EUR" value="EUR"> EUR </option>

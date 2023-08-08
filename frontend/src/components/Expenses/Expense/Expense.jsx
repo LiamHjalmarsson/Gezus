@@ -15,9 +15,13 @@ const Expense = ({detail, removeHandeler, otherCurrency}) => {
                 <div className={style.price}>
                     {`${detail.amount} ${detail.currency}`}
                 </div>
-                <div>
-                    {`= ${detail.amount} ${otherCurrency}`}
-                </div>
+                {
+                    otherCurrency !== undefined && (
+                        <div>
+                            {`= ${detail.amount} ${otherCurrency}`}
+                        </div>
+                    )
+                }
                 <Button button={{
                         onClick: () => {
                             removeHandeler(detail.id);
