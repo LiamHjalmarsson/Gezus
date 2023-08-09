@@ -14,6 +14,8 @@ const useHttp = () => {
             body: requestConfig.body ? requestConfig.body : null
         });
 
+        console.log(response);
+
         let recourse = await response.json();
 
         if (recourse.error) {

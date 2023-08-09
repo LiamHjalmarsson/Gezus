@@ -4,7 +4,9 @@ import Button from "../../Ui/Button/Button";
 
 import style from "./Expense.module.css";
 
-const Expense = ({detail, removeHandeler, otherCurrency}) => {
+const Expense = ({detail, removeHandeler, otherCurrency, currencyRate}) => {
+    let equivalet = (detail.amount / currencyRate[detail.currency]).toFixed(2);
+
     return (
         <li>
             <Card custom={style.customCard}>
@@ -18,7 +20,11 @@ const Expense = ({detail, removeHandeler, otherCurrency}) => {
                 {
                     otherCurrency !== undefined && (
                         <div>
-                            {`= ${detail.amount} ${otherCurrency}`}
+                            {
+                                otherCurrency !== detail.currency && (
+                                    `= ${equivalet } ${otherCurrency}`
+                                )
+                            }
                         </div>
                     )
                 }

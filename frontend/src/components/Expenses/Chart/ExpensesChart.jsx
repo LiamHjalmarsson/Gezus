@@ -1,4 +1,6 @@
-const ExpensesFilter = (props) => {
+import ExpenseChart from "./ExpenseChart";
+
+const ExpensesChart = (props) => {
 
     let monthsValue = [
         {
@@ -51,7 +53,12 @@ const ExpensesFilter = (props) => {
         },
     ];
 
-    return <p> Chart </p>
+    props.expenses.forEach(expense => {
+        let month = new Date(expense.dueDate).getMonth() + 1;
+        monthsValue[month].value += expense.amount;
+    });
+
+    return <ExpenseChart monthAmounts={monthsValue} />;
 }
 
-export default ExpensesFilter;
+export default ExpensesChart;

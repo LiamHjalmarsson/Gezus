@@ -1,22 +1,10 @@
-import { useState } from "react";
 import Expense from "./Expense/Expense";
-import OptionChanger from "./Currency/OptionChanger";
 import style from "./ExpensesList.module.css";
-import Button from "../Ui/Button/Button";
 import { NavLink } from "react-router-dom";
 
-const ExpensesList = ({expenses, removeHandeler, loading }) => {
-    let [selectedCurrency, setSelectedCurrency] = useState("EUR");
-
-    let options = [
-        { value: "EUR", label: "Euro (EUR)" },
-        { value: "KR", label: "Krona (KR)" },
-        { value: "USD", label: "US Dollar (USD)" },
-    ];
-
+const ExpensesList = ({expenses, removeHandler, loading, selectedCurrency, currencyRate }) => {
     return (
         <ul className={style.ul}>
-            <OptionChanger selectedCurrency={selectedCurrency} changeCurrency={setSelectedCurrency} options={options} />
             {expenses.length === 0 && !loading && (
                     <>
                         <h3 className={style.empety}>No Expenses added</h3>
@@ -31,7 +19,8 @@ const ExpensesList = ({expenses, removeHandeler, loading }) => {
                     <Expense 
                         key={expense.id} 
                         detail={expense}
-                        removeHandeler={removeHandeler}
+                        currencyRate={currencyRate}
+                        removeHandeler={removeHandler}
                         otherCurrency={selectedCurrency}
                     />
                 ))

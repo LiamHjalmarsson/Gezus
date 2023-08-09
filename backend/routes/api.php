@@ -22,3 +22,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::apiResource('expenses', ExpenseController::class);
 
 Route::delete('/expenses/delete/{id}',[ExpenseController::class, 'delete']);
+

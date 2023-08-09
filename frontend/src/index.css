@@ -21,4 +21,9 @@
 body {
     font-family: var(--titleFont);
     background-color: var(--colorDark);
+    overflow-x: hidden;
+}
+
+main {
+    margin-bottom: 5rem;
 }
