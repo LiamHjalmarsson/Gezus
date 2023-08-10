@@ -54,7 +54,7 @@ const ExpensesChart = (props) => {
     ];
 
     props.expenses.forEach(expense => {
-        let month = new Date(expense.dueDate).getMonth() + 1;
+        let month = new Date(expense.dueDate).getMonth();
         monthsValue[month].value += expense.amount;
     });
 

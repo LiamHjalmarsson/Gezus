@@ -1,9 +1,13 @@
 .customCard {
+    position: relative;
     display: flex;
     color: var(--font_border);
     gap: var(--OneRem);
     border: 1px solid ;
     padding: var(--OneRem);
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    opacity: 1;
+
 }
 
 .title {
@@ -25,4 +29,13 @@
 li div {
     align-items: center;
     display: flex;
+}
+
+.remove {
+    opacity: 0;
+    background-color: var(--coloredBackground);
+}
+
+.animateRemove {
+    transform: translateX(200%);
 }

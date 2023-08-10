@@ -6,7 +6,7 @@ import ExpenseForm from "./ExpenseForm";
 import style from "./ExpenseForm.module.css";
 import Expense from "../Expense/Expense";
 
-const FormPage = () => {
+const Form = () => {
     let { isLoading, isError, sendRequest } = useHttp();
     let [expenseAdded, setExpenseAdded] = useState([]);
 
@@ -33,7 +33,7 @@ const FormPage = () => {
                 <Card custom={style.customFormCard}>
                     <ul className={style.ul}>
                         {expenseAdded.map((expense) => (
-                            <Expense key={expense.id} detail={expense} currency="kr" />
+                            <Expense key={expense.id} detail={expense} />
                         ))}
                     </ul>
                 </Card>
@@ -42,4 +42,4 @@ const FormPage = () => {
     );
 }
 
-export default FormPage;
+export default Form;

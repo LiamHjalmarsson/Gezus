@@ -23,7 +23,7 @@ const Navigation = () => {
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink to="/addExpense">
+                        <NavLink to="/addExpense" className={({isActive}) => isActive ? style.active : undefined}>
                             Add Expenses
                         </NavLink>
                     </li>

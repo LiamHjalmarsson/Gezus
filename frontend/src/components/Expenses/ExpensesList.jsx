@@ -1,8 +1,24 @@
+import useHttp from "../../hooks/use-http";
 import Expense from "./Expense/Expense";
 import style from "./ExpensesList.module.css";
 import { NavLink } from "react-router-dom";
 
-const ExpensesList = ({expenses, removeHandler, loading, selectedCurrency, currencyRate }) => {
+const ExpensesList = ({expenses, remove, loading, selectedCurrency, currencyRate }) => {
+    let {sendRequest} = useHttp();
+
+    let removeHandeler = (id) => {
+        sendRequest(
+            {
+                url: `http://127.0.0.1:8000/api/expenses/${id}`,
+                method: "DELETE",
+                headers: {"Content-Type": "application/json"},
+            },
+            (
+                () => remove(id)
+            )
+        );
+    }
+
     return (
         <ul className={style.ul}>
             {expenses.length === 0 && !loading && (
@@ -20,7 +36,7 @@ const ExpensesList = ({expenses, removeHandler, loading, selectedCurrency, curre
                         key={expense.id} 
                         detail={expense}
                         currencyRate={currencyRate}
-                        removeHandeler={removeHandler}
+                        removeHandeler={removeHandeler}
                         otherCurrency={selectedCurrency}
                     />
                 ))
