@@ -24,8 +24,8 @@ const Expense = ({detail, removeHandeler, otherCurrency, currencyRate}) => {
     }, [remove]);
 
     return (
-        <li>
-            <Card custom={`${style.customCard} ${remove ? style.remove : ''} ${animateRemove ? style.animateRemove : ''}`}>
+        <li className={style.li}>
+            <Card custom={`${style.customCard} ${remove ? style.remove : ''} ${animateRemove ? style.animateRemove : style.animateUp}`}>
                 <ExpenseDate detail={detail} />
 
                 <div className={style.title}>

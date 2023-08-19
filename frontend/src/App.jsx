@@ -20,7 +20,7 @@ const router = createBrowserRouter(
           // loader: expensesLoader,
         }, 
         {
-          path: "/addExpense",
+          path: "/newExpense",
           element: <FormPage />,
           // action: manipulateExpenseAction
         },

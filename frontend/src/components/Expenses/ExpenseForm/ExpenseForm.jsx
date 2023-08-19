@@ -22,7 +22,6 @@ const ExpenseForm = (props) => {
         }
 
         props.addExpense(payload);
-
     }
 
     let titleChangeHandler = (e) => {

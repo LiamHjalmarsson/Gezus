@@ -1,7 +1,7 @@
+import { NavLink } from "react-router-dom";
 import useHttp from "../../hooks/use-http";
 import Expense from "./Expense/Expense";
 import style from "./ExpensesList.module.css";
-import { NavLink } from "react-router-dom";
 
 const ExpensesList = ({expenses, remove, loading, selectedCurrency, currencyRate }) => {
     let {sendRequest} = useHttp();

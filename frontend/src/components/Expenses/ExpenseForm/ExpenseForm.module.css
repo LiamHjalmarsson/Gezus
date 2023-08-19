@@ -48,7 +48,7 @@
     gap: 2rem;
 }
 
-.btnContainer { 
+.btnContainer {
     display: flex;
     justify-content: center;
     align-items: end;
@@ -74,4 +74,30 @@
     border-color: orangered;
     color: orangered;
     transition: border, color 1500ms ease-in-out;
+}
+
+.slide-in {
+    
+    transform: translateX(-100%);
+    animation: slide-in 0.5s ease-out forwards;
+}
+
+.slide-out {
+    transform: translateX(100%);
+    animation: slide-out 0.5s ease-in forwards;
+}
+
+@keyframes slide-in {
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slide-out {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(100%);
+    }
 }

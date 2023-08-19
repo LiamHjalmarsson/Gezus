@@ -5,7 +5,6 @@ import style from "./Navigation.module.css";
 
 const Navigation = () => {
     let [activeUser, setActiveUser] = useState(false);
-
     let userHandeler = () => {
         setActiveUser(!activeUser);
     }
@@ -23,7 +22,7 @@ const Navigation = () => {
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink to="/addExpense" className={({isActive}) => isActive ? style.active : undefined}>
+                        <NavLink to="/newExpense" >
                             Add Expenses
                         </NavLink>
                     </li>
